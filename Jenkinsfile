@@ -16,6 +16,8 @@ pipeline {
 
         stage('Build with Maven') {
             steps {
+                // ✅ Fix permission issue before running mvnw
+                sh 'chmod +x mvnw'
                 sh './mvnw clean package -DskipTests'
             }
         }
